@@ -20,7 +20,17 @@
 
 ## Company Details
 
+**AtliQ Hardware** is a prominent electronics accessories company that specializes in providing a wide range of high-quality hardware solutions, including connectors, cables, circuit boards, and other essential components for electronic devices and systems. They cater to both individual consumers and businesses, emphasizing quality and performance to meet the evolving needs of their customers.
 
+#### Channels and Platforms
+- **Retail Stores:** Physical locations such as Croma and Staples where customers can purchase AtliQ Hardware products.
+- **Distributors:** Third-party entities like Neptune that help distribute AtliQ Hardware products to various markets.
+- **Exclusive Showrooms:** Dedicated spaces, both physical and online, showcasing AtliQ Hardware products.
+- **Online Platforms:** E-commerce websites and platforms such as Amazon and Walmart where customers can buy AtliQ Hardware products.
+
+#### Customers
+- **Individual Consumers:** People purchasing hardware components for personal use.
+- **Businesses: Companies:** buying hardware solutions for their operations and projects, including top customers like Amazon, Neptune, Staples, and Walmart
 
 ## Project Overview
 
@@ -28,11 +38,55 @@
 
 ### Business Problem
 
+Atliq Hardwares is one of the leading computer hardware producers in India and well expanded in other countries too.
 
+However, the management noticed that they do not get enough insights to make quick and smart data-informed decisions. They want to expand their data analytics team by adding several junior data analysts. Tony Sharma, their data analytics director wanted to hire someone who is good at both tech and soft skills. Hence, he decided to conduct a SQL challenge which will help him understand both the skills.
+
+#### Task:  
+
+Imagine yourself as the applicant for this role and perform the following task:
+
+1. Check ‘ad-hoc-requests.pdf’ - there are 10 ad hoc requests for which the business needs insights.
+2. You need to run a SQL query to answer these requests. 
+3. The target audience of this dashboard is top-level management - hence you need to create a presentation to show the insights.
+4. Be creative with your presentation, audio/video presentation will have more weightage.
 
 ### Approach and Methodology
 
+To deliver ad hoc insights using SQL, a structured and systematic approach was followed:
 
+1. **Understanding the Project Scope**
+   The project began by clearly understanding the requirements and objectives, focusing on uncovering key insights that could drive business decisions for AtliQ GDB023.
+
+2. **Data Import and Setup**
+   The dataset was imported into the MySQL database to enable efficient querying and data analysis. The database schema and structure were reviewed to ensure readiness for 
+   analysis.
+
+3. **Data Quality Assessment and Cleaning**
+   Thoroughly assessed the dataset for potential issues, such as missing values, duplicates, and inconsistencies. Where necessary, performed data cleaning to improve accuracy 
+   and ensure the integrity of the analysis.
+
+4. **SQL Query Development**
+   Crafted and executed SQL queries to extract meaningful insights. The queries were designed to address the specific business questions posed during the requirement analysis 
+   phase.
+
+5. **Exporting Results**
+   After deriving the required insights, the results were exported in CSV format to enable further use in reporting and visualization tools.
+
+6. **Database Integration with Power BI**
+   Connected the SQL database “AtliQ GDB023” to Power BI, allowing dynamic visualization of insights.
+   
+7. **Data Validation**
+   Cross-checked the exported and visualized data against the raw database to ensure accuracy and consistency. Conducted thorough validations to confirm the reliability of 
+   findings.
+
+8. **Visualization and Reporting**
+   Utilized Power BI to create clear, compelling visualizations that communicated the insights effectively. Focused on using appropriate chart types and layouts to highlight key 
+   patterns and trends.
+
+9. **Presentation and Recommendations**
+   Prepared a detailed presentation outlining the analysis, insights, and actionable recommendations. The presentation was structured to address the specific objectives and 
+   provide strategic direction for decision-making.
 
 ### Solutions
 
@@ -294,6 +348,73 @@ WHERE rank_order <= 3;
 
 ## Understanding the Datasets
 
+### Understanding the Datasets
+Understanding what data is available will be more helpful while doing analysis. before jumping on to the analysis get good understanding of what are data available.
 
+- **Dimension table:** It will have the static data like details of customer and products
+
+- **Fact table:** It will have the data about the transactions  
+
+#### gdb023
+
+  **dim_customer**
+
+- **27** distinct markets (ex India, USA, spain)
+- **75** distinct customers thorough out the market
+- **2** types of platforms
+  - Brick & Motors - Physical/offline store
+  - E-commerce - Online Store (Amazon, flipkart)
+        
+**Three channels**
+ - Retailer
+ - Direct
+ - Distributors
+
+ - 7 sub-zones
+ - 4 regions
+    - APAC
+    - EU
+    - nan
+    - LATAM
+   
+**dim_product**
+
+  - Divisions
+    - P & A
+      - Peripherals
+      - Accessories
+    - PC
+      - Notebook
+      - Desktop
+    - N & S
+      - Networking
+      - Storage
+    - There are 14 different categories, Like Internal HDD, keyboard
+    - There are different variants available for the same product
+
+**fact_sales_monthly**
+
+- it track the sales of the each customer. it has:
+  - date (The date were the sale is made)
+  - customer_code (connected to dim_customer table)
+  - product_code (connected to dim_product table)
+  - fiscal year of AtliQ Hardware
+  - sold_quantity (quantity sold of a particular product)
+
+**gross_price**
+
+  - Has the details of gross prices with product code
+    
+**manufacturing_cost**
+
+  - Has the details of manufacturing cost with product code with year
+
+**Pre_invoice_dedutions**
+
+  - Has the details of pre invoice deductions percentage for each cutomer with year
 
 ## Data Modelling
+
+<br>
+
+<img src="" class="center">

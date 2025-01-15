@@ -34,7 +34,7 @@
 
 ## Project Overview
 
-
+This project focuses on deriving **ad hoc business insights** using SQL and Power BI. Starting with data import and cleaning in MySQL, the analysis involved writing efficient SQL queries to uncover trends and key metrics. The results were validated, visualized in Power BI, and presented with actionable recommendations to support data-driven decision-making.
 
 ### Business Problem
 
@@ -55,36 +55,36 @@ Imagine yourself as the applicant for this role and perform the following task:
 
 To deliver ad hoc insights using SQL, a structured and systematic approach was followed:
 
-1. **Understanding the Project Scope**
+1. **Understanding the Project Scope:**
    The project began by clearly understanding the requirements and objectives, focusing on uncovering key insights that could drive business decisions for AtliQ GDB023.
 
-2. **Data Import and Setup**
+2. **Data Import and Setup:**
    The dataset was imported into the MySQL database to enable efficient querying and data analysis. The database schema and structure were reviewed to ensure readiness for 
    analysis.
 
-3. **Data Quality Assessment and Cleaning**
+3. **Data Quality Assessment and Cleaning:**
    Thoroughly assessed the dataset for potential issues, such as missing values, duplicates, and inconsistencies. Where necessary, performed data cleaning to improve accuracy 
    and ensure the integrity of the analysis.
 
-4. **SQL Query Development**
+4. **SQL Query Development:**
    Crafted and executed SQL queries to extract meaningful insights. The queries were designed to address the specific business questions posed during the requirement analysis 
    phase.
 
-5. **Exporting Results**
+5. **Exporting Results:**
    After deriving the required insights, the results were exported in CSV format to enable further use in reporting and visualization tools.
 
-6. **Database Integration with Power BI**
+6. **Database Integration with Power BI:**
    Connected the SQL database “AtliQ GDB023” to Power BI, allowing dynamic visualization of insights.
    
-7. **Data Validation**
+7. **Data Validation:**
    Cross-checked the exported and visualized data against the raw database to ensure accuracy and consistency. Conducted thorough validations to confirm the reliability of 
    findings.
 
-8. **Visualization and Reporting**
+8. **Visualization and Reporting:**
    Utilized Power BI to create clear, compelling visualizations that communicated the insights effectively. Focused on using appropriate chart types and layouts to highlight key 
    patterns and trends.
 
-9. **Presentation and Recommendations**
+9. **Presentation and Recommendations:**
    Prepared a detailed presentation outlining the analysis, insights, and actionable recommendations. The presentation was structured to address the specific objectives and 
    provide strategic direction for decision-making.
 

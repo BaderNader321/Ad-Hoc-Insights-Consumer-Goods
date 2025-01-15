@@ -13,7 +13,6 @@
     * [Business Problem](#business-problem)
     * [Approach & Methodology](#approach-and-methodology)
     * [Solutions](#solutions)
-    * [Key Insights & Outcomes](#key-insights-and-outcomes)
     * [Business Related Terms](#business-related-terms)
     * [Technical Details](#technical-details)
     * [Key Learnings](#key-learnings)
@@ -37,6 +36,9 @@
 
 
 ### Solutions
+
+<br>
+
 1. Provide the list of markets in which customer "Atliq Exclusive" operates its business in the APAC region.
 
 ```SQL
@@ -47,6 +49,8 @@ WHERE customer = "Atliq Exclusive"
 GROUP BY market
 ORDER BY market;
 ```
+
+<br>
 
 2. What is the percentage of unique product increase in 2021 vs. 2020? The final output contains these fields,
    - unique_products_2020
@@ -70,6 +74,8 @@ FROM unique_product_count_2020,
 	    unique_product_count_2021;
 ```
 
+<br>
+
 3. Provide a report with all the unique product counts for each segment and sort them in descending order of product counts. The final output contains 2 fields,
    - segment
    - product_count
@@ -80,6 +86,8 @@ FROM dim_product
 	GROUP BY segment	
 	ORDER BY unique_product_count DESC;
 ```
+
+<br>
 
 4. Follow-up: Which segment had the most increase in unique products in 2021 vs 2020? The final output contains these fields,
    - segment
@@ -111,6 +119,8 @@ FROM cte_2020
 ORDER BY segment;
 ```
 
+<br>
+
 5. Get the products that have the highest and lowest manufacturing costs. The final output should contain these fields,
    - product_code
    - product
@@ -130,6 +140,8 @@ WHERE manufacturing_cost IN (
 ORDER BY manufacturing_cost DESC;
 ```
 
+<br>
+
 6. Generate a report which contains the top 5 customers who received an average high pre_invoice_discount_pct for the fiscal year 2021 and in the Indian market. The final output    contains these fields,
    - customer_code
    - customer
@@ -146,6 +158,8 @@ WHERE c.market = "India" AND pid.fiscal_year = 2021
 	ORDER BY average_discount_percentage DESC
 LIMIT 5;
 ```
+
+<br>
 
 7. Get the complete report of the Gross sales amount for the customer “Atliq Exclusive” for each month. This analysis helps to get an idea of low and high-performing months and     take strategic decisions. The final report contains these columns:
    - Month
@@ -191,6 +205,8 @@ SELECT month, year,
 FROM formatted_sales_amount;
 ```
 
+<br>
+
 8. In which quarter of 2020, got the maximum total_sold_quantity? The final output contains these fields sorted by the total_sold_quantity,
    - Quarter 
    - total_sold_quantity
@@ -218,6 +234,8 @@ FROM calculated_quarter_column
 	ORDER BY total_quantity_sold DESC;
 ```
 
+<br>
+
 9. Which channel helped to bring more gross sales in the fiscal year 2021 and the percentage of contribution? The final output contains these fields,
    - channel
    - gross_sales_mln
@@ -243,6 +261,8 @@ SELECT channel,
 FROM formatted_gross_sales_amount;
 ```
 
+<br>
+
 10. Get the Top 3 products in each division that have a high total_sold_quantity in the fiscal_year 2021? The final output contains these fields,
     - division
     - product_code
@@ -266,10 +286,6 @@ SELECT *
 FROM top_3_products
 WHERE rank_order <= 3;
 ```
-
-### Key Insights and Outcomes
-
-
 
 ### Business Related Terms 
 

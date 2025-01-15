@@ -13,7 +13,6 @@
     * [Business Problem](#business-problem)
     * [Approach & Methodology](#approach-and-methodology)
     * [Solutions](#solutions)
-    * [Business Related Terms](#business-related-terms)
     * [Technical Details](#technical-details)
     * [Key Learnings](#key-learnings)
 * [Understanding the Datasets](#understanding-the-datasets)
@@ -284,10 +283,6 @@ SELECT *
 FROM top_3_products
 WHERE rank_order <= 3;
 ```
-
-### Business Related Terms 
-
-
 
 ### Technical Details
 

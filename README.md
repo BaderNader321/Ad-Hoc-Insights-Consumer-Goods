@@ -1,11 +1,11 @@
 # Ad-Hoc-Insights-Consumer-Goods
 
 ### Quick Links
-  * [LinkedIn Post](https://www.linkedin.com/posts/badernader_business-insight-360-activity-7264969422296031232-T1a7?utm_source=share&utm_medium=member_desktop)
+  * [LinkedIn Post]()
   * [Presentation Video]()
   * Presentation Files
-    * [PDF]()
-    * [PPT]() 
+    * [PDF](https://github.com/BaderNader321/Ad-Hoc-Insights-Consumer-Goods/blob/3f84e6d48b4226af913702bf29d8fcb055c27a7d/Solutions/Ad%20Hoc%20Analysis%20Presentation.pdf)
+    * [PPT](https://github.com/BaderNader321/Ad-Hoc-Insights-Consumer-Goods/blob/3f84e6d48b4226af913702bf29d8fcb055c27a7d/Solutions/Ad%20Hoc%20Analysis%20Presentation.pptx) 
 
 ### Table of Contents
 * [Company Details](#company-details)
@@ -437,4 +437,4 @@ Understanding what data is available will be more helpful while doing analysis. 
 
 <br>
 
-<img src="" class="center">
+<img src="https://github.com/BaderNader321/Ad-Hoc-Insights-Consumer-Goods/blob/3f84e6d48b4226af913702bf29d8fcb055c27a7d/Solutions/Data%20Model.png" class="center">

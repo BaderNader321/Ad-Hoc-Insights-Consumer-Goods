@@ -92,14 +92,16 @@ To deliver ad hoc insights using SQL, a structured and systematic approach was f
 
 1. Provide the list of markets in which customer "Atliq Exclusive" operates its business in the APAC region.
 
-```SQL
-SELECT market 
-FROM dim_customer
-WHERE customer = "Atliq Exclusive" 
-  AND region = "APAC"
-GROUP BY market
-ORDER BY market;
-```
+	<br>
+
+	```SQL
+	SELECT market 
+	FROM dim_customer
+	WHERE customer = "Atliq Exclusive" 
+	  AND region = "APAC"
+	GROUP BY market
+	ORDER BY market;
+	```
 
 <br>
 
@@ -107,23 +109,25 @@ ORDER BY market;
    - unique_products_2020
    - unique_products_2021
    - percentage_chg
+  
+	<br>
 
-```SQL
-WITH unique_product_count_2020 AS (
-	SELECT COUNT(DISTINCT product_code) AS product_count_2020 
-	FROM fact_sales_monthly 
-    WHERE fiscal_year = 2020
-), unique_product_count_2021 AS (
-	SELECT COUNT(DISTINCT product_code) AS product_count_2021 
-	FROM fact_sales_monthly 
-    WHERE fiscal_year = 2021
-)
-SELECT product_count_2020 AS unique_products_2020, 
-	   product_count_2021 AS unique_products_2021, 
-	   ROUND((product_count_2021 - product_count_2020) * 100 / product_count_2020, 2) AS percentage_chg
-FROM unique_product_count_2020, 
-	    unique_product_count_2021;
-```
+	```SQL
+	WITH unique_product_count_2020 AS (
+		SELECT COUNT(DISTINCT product_code) AS product_count_2020 
+		FROM fact_sales_monthly 
+	    WHERE fiscal_year = 2020
+	), unique_product_count_2021 AS (
+		SELECT COUNT(DISTINCT product_code) AS product_count_2021 
+		FROM fact_sales_monthly 
+	    WHERE fiscal_year = 2021
+	)
+	SELECT product_count_2020 AS unique_products_2020, 
+		   product_count_2021 AS unique_products_2021, 
+		   ROUND((product_count_2021 - product_count_2020) * 100 / product_count_2020, 2) AS percentage_chg
+	FROM unique_product_count_2020, 
+		 unique_product_count_2021;
+	```
 
 <br>
 
@@ -131,12 +135,14 @@ FROM unique_product_count_2020,
    - segment
    - product_count
 
-```SQL
-SELECT segment, COUNT(DISTINCT product_code) AS unique_product_count 
-FROM dim_product
-	GROUP BY segment	
-	ORDER BY unique_product_count DESC;
-```
+	<br>
+
+	```SQL
+	SELECT segment, COUNT(DISTINCT product_code) AS unique_product_count 
+	FROM dim_product
+		GROUP BY segment	
+		ORDER BY unique_product_count DESC;
+	```
 
 <br>
 
@@ -146,29 +152,31 @@ FROM dim_product
    - product_count_2021
    - difference
 
-```SQL
-WITH cte_2020 AS (
-	SELECT p.segment, COUNT(DISTINCT s.product_code) AS unique_product_2020
-	FROM dim_product p 
-		JOIN fact_sales_monthly s 
+	<br>
+
+	```SQL
+	WITH cte_2020 AS (
+		SELECT p.segment, COUNT(DISTINCT s.product_code) AS unique_product_2020
+		FROM dim_product p 
+			JOIN fact_sales_monthly s 
+				USING (product_code)
+		WHERE s.fiscal_year = 2020
+			GROUP BY segment  
+	), cte_2021 AS (
+		SELECT p.segment, COUNT(DISTINCT s.product_code) AS unique_product_2021
+		FROM dim_product p 
+	    JOIN fact_sales_monthly s 
 			USING (product_code)
-	WHERE s.fiscal_year = 2020
-		GROUP BY segment  
-), cte_2021 AS (
-	SELECT p.segment, COUNT(DISTINCT s.product_code) AS unique_product_2021
-	FROM dim_product p 
-    JOIN fact_sales_monthly s 
-		USING (product_code)
-	WHERE s.fiscal_year = 2021
-		GROUP BY segment
-)
-SELECT segment, unique_product_2020, unique_product_2021,
-	(unique_product_2021 - unique_product_2020) AS difference
-FROM cte_2020 
-	JOIN cte_2021 
-		USING (segment)
-ORDER BY segment;
-```
+		WHERE s.fiscal_year = 2021
+			GROUP BY segment
+	)
+	SELECT segment, unique_product_2020, unique_product_2021,
+		(unique_product_2021 - unique_product_2020) AS difference
+	FROM cte_2020 
+		JOIN cte_2021 
+			USING (segment)
+	ORDER BY segment;
+	```
 
 <br>
 
@@ -176,20 +184,22 @@ ORDER BY segment;
    - product_code
    - product
    - manufacturing_cost
+  
+	<br>
 
-```SQL
-SELECT m.product_code, 
-	   p.product, 
-	   m.manufacturing_cost
-FROM fact_manufacturing_cost m 
-	JOIN dim_product p 
-		USING (product_code)
-WHERE manufacturing_cost IN (
-		(SELECT MAX(manufacturing_cost) FROM fact_manufacturing_cost), 
-        (SELECT MIN(manufacturing_cost) FROM fact_manufacturing_cost)
-	)
-ORDER BY manufacturing_cost DESC;
-```
+	```SQL
+	SELECT m.product_code, 
+		   p.product, 
+		   m.manufacturing_cost
+	FROM fact_manufacturing_cost m 
+		JOIN dim_product p 
+			USING (product_code)
+	WHERE manufacturing_cost IN (
+			(SELECT MAX(manufacturing_cost) FROM fact_manufacturing_cost), 
+	        (SELECT MIN(manufacturing_cost) FROM fact_manufacturing_cost)
+		)
+	ORDER BY manufacturing_cost DESC;
+	```
 
 <br>
 
@@ -198,17 +208,19 @@ ORDER BY manufacturing_cost DESC;
    - customer
    - average_discount_percentage
 
-```SQL
-SELECT pid.customer_code, c.customer, 
-	ROUND(AVG(pre_invoice_discount_pct), 4) AS average_discount_percentage 
-FROM dim_customer c
-	JOIN fact_pre_invoice_deductions pid
-		USING (customer_code)
-WHERE c.market = "India" AND pid.fiscal_year = 2021
-	GROUP BY pid.customer_code, c.customer
-	ORDER BY average_discount_percentage DESC
-LIMIT 5;
-```
+	<br>
+
+	```SQL
+	SELECT pid.customer_code, c.customer, 
+		ROUND(AVG(pre_invoice_discount_pct), 4) AS average_discount_percentage 
+	FROM dim_customer c
+		JOIN fact_pre_invoice_deductions pid
+			USING (customer_code)
+	WHERE c.market = "India" AND pid.fiscal_year = 2021
+		GROUP BY pid.customer_code, c.customer
+		ORDER BY average_discount_percentage DESC
+	LIMIT 5;
+	```
 
 <br>
 
@@ -217,21 +229,9 @@ LIMIT 5;
    - Year
    - Gross sales Amount
 
-```SQL
-SELECT MONTH(date) AS month, YEAR(date) AS year,
-	ROUND(SUM((s.sold_quantity * g.gross_price)), 2) AS gross_sales_amount
-FROM fact_sales_monthly s
-JOIN fact_gross_price g 
-	ON s.product_code = g.product_code
-	AND s.fiscal_year = g.fiscal_year
-JOIN dim_customer c
-	ON s.customer_code = c.customer_code
-WHERE customer = "AtliQ Exclusive"
-	GROUP BY year, month
-	ORDER BY year, month;
+	<br>
 
--- Trying out to Format gross sales amount
-WITH formatted_sales_amount AS (
+	```SQL
 	SELECT MONTH(date) AS month, YEAR(date) AS year,
 		ROUND(SUM((s.sold_quantity * g.gross_price)), 2) AS gross_sales_amount
 	FROM fact_sales_monthly s
@@ -242,19 +242,33 @@ WITH formatted_sales_amount AS (
 		ON s.customer_code = c.customer_code
 	WHERE customer = "AtliQ Exclusive"
 		GROUP BY year, month
-		ORDER BY year, month
-)
-SELECT month, year, 
-	CASE 
-        WHEN gross_sales_amount >= 1000000 THEN 
-            CONCAT(FORMAT(gross_sales_amount / 1000000.0, 2), 'M')
-        WHEN gross_sales_amount >= 1000 THEN
-            CONCAT(FORMAT(gross_sales_amount / 1000.0, 2), 'K')
-        ELSE
-            FORMAT(gross_sales_amount, 2)
-	END AS gross_sales_amount_in_millions
-FROM formatted_sales_amount;
-```
+		ORDER BY year, month;
+	
+	-- Trying out to Format gross sales amount
+	WITH formatted_sales_amount AS (
+		SELECT MONTH(date) AS month, YEAR(date) AS year,
+			ROUND(SUM((s.sold_quantity * g.gross_price)), 2) AS gross_sales_amount
+		FROM fact_sales_monthly s
+		JOIN fact_gross_price g 
+			ON s.product_code = g.product_code
+			AND s.fiscal_year = g.fiscal_year
+		JOIN dim_customer c
+			ON s.customer_code = c.customer_code
+		WHERE customer = "AtliQ Exclusive"
+			GROUP BY year, month
+			ORDER BY year, month
+	)
+	SELECT month, year, 
+		CASE 
+	        WHEN gross_sales_amount >= 1000000 THEN 
+	            CONCAT(FORMAT(gross_sales_amount / 1000000.0, 2), 'M')
+	        WHEN gross_sales_amount >= 1000 THEN
+	            CONCAT(FORMAT(gross_sales_amount / 1000.0, 2), 'K')
+	        ELSE
+	            FORMAT(gross_sales_amount, 2)
+		END AS gross_sales_amount_in_millions
+	FROM formatted_sales_amount;
+	```
 
 <br>
 
@@ -262,28 +276,30 @@ FROM formatted_sales_amount;
    - Quarter 
    - total_sold_quantity
 
-```SQL
-WITH calculated_fiscal_month AS (
-	SELECT *, 
-		MONTH(DATE_ADD(date, INTERVAL 4 MONTH)) AS fiscal_month
-	FROM fact_sales_monthly
-		WHERE fiscal_year = 2020
-), calculated_quarter_column AS (
-	SELECT *,
-		CASE
-			WHEN fiscal_month IN (1, 2, 3) THEN "Q1"
-			WHEN fiscal_month IN (4, 5, 6) THEN "Q2"
-			WHEN fiscal_month IN (7, 8, 9) THEN "Q3"
-			WHEN fiscal_month IN (10, 11, 12) THEN "Q4"
-		END AS quarter
-	FROM calculated_fiscal_month
-)
-SELECT quarter, 
-	SUM(sold_quantity) AS total_quantity_sold
-FROM calculated_quarter_column
-	GROUP BY quarter
-	ORDER BY total_quantity_sold DESC;
-```
+	<br>
+
+	```SQL
+	WITH calculated_fiscal_month AS (
+		SELECT *, 
+			MONTH(DATE_ADD(date, INTERVAL 4 MONTH)) AS fiscal_month
+		FROM fact_sales_monthly
+			WHERE fiscal_year = 2020
+	), calculated_quarter_column AS (
+		SELECT *,
+			CASE
+				WHEN fiscal_month IN (1, 2, 3) THEN "Q1"
+				WHEN fiscal_month IN (4, 5, 6) THEN "Q2"
+				WHEN fiscal_month IN (7, 8, 9) THEN "Q3"
+				WHEN fiscal_month IN (10, 11, 12) THEN "Q4"
+			END AS quarter
+		FROM calculated_fiscal_month
+	)
+	SELECT quarter, 
+		SUM(sold_quantity) AS total_quantity_sold
+	FROM calculated_quarter_column
+		GROUP BY quarter
+		ORDER BY total_quantity_sold DESC;
+	```
 
 <br>
 
@@ -292,25 +308,27 @@ FROM calculated_quarter_column
    - gross_sales_mln
    - percentage
 
-```SQL
-WITH formatted_gross_sales_amount AS (
-	SELECT c.channel, 
-		ROUND(SUM(gross_price * sold_quantity), 2) AS gross_sales_amount 
-	FROM fact_sales_monthly s 
-	JOIN fact_gross_price g
-		ON s.product_code = g.product_code
-		AND s.fiscal_year = g.fiscal_year
-	JOIN dim_customer c
-		ON s.customer_code = c.customer_code
-	WHERE s.fiscal_year = 2021
-		GROUP BY c.channel
-		ORDER BY gross_sales_amount DESC
-)
-SELECT channel, 
-	CONCAT(FORMAT(gross_sales_amount / 1000000, 2), " M") AS gross_sales_in_mln,
-    CONCAT(FORMAT(gross_sales_amount / SUM(gross_sales_amount) OVER() * 100, 2), "%") AS percentage
-FROM formatted_gross_sales_amount;
-```
+	<br>
+
+	```SQL
+	WITH formatted_gross_sales_amount AS (
+		SELECT c.channel, 
+			ROUND(SUM(gross_price * sold_quantity), 2) AS gross_sales_amount 
+		FROM fact_sales_monthly s 
+		JOIN fact_gross_price g
+			ON s.product_code = g.product_code
+			AND s.fiscal_year = g.fiscal_year
+		JOIN dim_customer c
+			ON s.customer_code = c.customer_code
+		WHERE s.fiscal_year = 2021
+			GROUP BY c.channel
+			ORDER BY gross_sales_amount DESC
+	)
+	SELECT channel, 
+		CONCAT(FORMAT(gross_sales_amount / 1000000, 2), " M") AS gross_sales_in_mln,
+	    CONCAT(FORMAT(gross_sales_amount / SUM(gross_sales_amount) OVER() * 100, 2), "%") AS percentage
+	FROM formatted_gross_sales_amount;
+	```
 
 <br>
 
@@ -321,22 +339,24 @@ FROM formatted_gross_sales_amount;
     - total_sold_quantity
     - rank_order
 
-```SQL
-WITH top_3_products AS (
-	SELECT p.division, s.product_code, p.product, 
-		SUM(s.sold_quantity) AS total_quantity_sold, 
-		DENSE_RANK() OVER(PARTITION BY p.division ORDER BY SUM(s.sold_quantity) DESC) AS rank_order
-	FROM fact_sales_monthly s 
-    JOIN dim_product p 
-    USING (product_code)
-    WHERE fiscal_year = 2021
-		GROUP BY p.division, s.product_code, p.product
-		ORDER BY p.division ASC, total_quantity_sold DESC
-)
-SELECT * 
-FROM top_3_products
-WHERE rank_order <= 3;
-```
+	<br>
+
+	```SQL
+	WITH top_3_products AS (
+		SELECT p.division, s.product_code, p.product, 
+			SUM(s.sold_quantity) AS total_quantity_sold, 
+			DENSE_RANK() OVER(PARTITION BY p.division ORDER BY SUM(s.sold_quantity) DESC) AS rank_order
+		FROM fact_sales_monthly s 
+	    JOIN dim_product p 
+	    USING (product_code)
+	    WHERE fiscal_year = 2021
+			GROUP BY p.division, s.product_code, p.product
+			ORDER BY p.division ASC, total_quantity_sold DESC
+	)
+	SELECT * 
+	FROM top_3_products
+	WHERE rank_order <= 3;
+	```
 
 ### Technical Details
 

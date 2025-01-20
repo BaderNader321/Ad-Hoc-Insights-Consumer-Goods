@@ -12,7 +12,8 @@
 * [Project Overview](#project-overview)
     * [Business Problem](#business-problem)
     * [Approach & Methodology](#approach-and-methodology)
-    * [Solutions](#solutions)
+    * [Insights](#insights)
+    * [SQL Queries](#sql-queries)
     * [Technical Details](#technical-details)
     * [Key Learnings](#key-learnings)
 * [Understanding the Datasets](#understanding-the-datasets)
@@ -88,7 +89,11 @@ To deliver ad hoc insights using SQL, a structured and systematic approach was f
    Prepared a detailed presentation outlining the analysis, insights, and actionable recommendations. The presentation was structured to address the specific objectives and 
    provide strategic direction for decision-making.
 
-### Solutions
+### Insights
+
+1. 
+
+### SQL Queries
 
 1. Provide the list of markets in which customer "Atliq Exclusive" operates its business in the APAC region.
 

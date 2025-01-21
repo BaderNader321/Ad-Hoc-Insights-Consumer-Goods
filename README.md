@@ -384,7 +384,10 @@ To deliver ad hoc insights using SQL, a structured and systematic approach was f
 
 ### Key Learnings
 
-
+1. **SQL Expertise:** Applied advanced concepts like joins, CTEs, subqueries, window functions, string functions, numeric functions, and date functions using MySQL Workbench.
+2. **Data Visualization:** Transformed SQL query results into meaningful charts in Power BI, including column charts, bar charts, line charts, and waterfall charts.
+3. **DAX Calculations:** Utilized DAX to perform complex calculations and enhance insights.
+4. **Highlight:** Created a waterfall chart to show the difference between unique product counts in 2020 and 2021, making trends easy to understand.
 
 ## Understanding the Datasets
 

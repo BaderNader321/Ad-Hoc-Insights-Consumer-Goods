@@ -13,7 +13,7 @@
     * [Business Problem](#business-problem)
     * [Approach & Methodology](#approach-and-methodology)
     * [Insights](#insights)
-    * [SQL Queries](#sql-queries)
+    * [Queries](#queries)
     * [Technical Details](#technical-details)
     * [Key Learnings](#key-learnings)
 * [Understanding the Datasets](#understanding-the-datasets)
@@ -91,9 +91,24 @@ To deliver ad hoc insights using SQL, a structured and systematic approach was f
 
 ### Insights
 
-1. 
+1. AtliQ Exclusive operates in eight APAC markets: **Australia, Bangladesh, India, South Korea, Indonesia, Japan, New Zealand, and the Philippines**.
+2. Unique product offerings increased by **36.33%** in 2021 compared to 2020. This growth highlights **rising demand** and suggests focusing on **scaling production**.
+3. The **Notebook segment leads** with 129 unique products, while **Networking ranks lowest** with just 9 products.
+4. The **Accessories** segment experienced the most significant growth, **adding 34 new products**. **Networking** saw the smallest increase, with **only 3 new products**.
+5. The product with **highest and lowest** manufacturing cost are **AQ Home Allinl Gen 2** (PC division) at ₹240.54 and **AQ Master Wired XL Ms** (P&A division) at **₹0.89**.
+6. **Flipkart, Viveks, Ezone, Croma, and Amazon** received discounts ranging from **29.33% to 30.83%**.
+7. The month with **highest and lowest** gross sales are **March 2020 at Rs. 0.77M** and **November 2020 at Rs. 32.25M**. The other **major insights** from gross sales trend visual are: 
+   - The spike in **September 2019** could be because of **seasonal factors** such as back-to-school shopping or holiday sales.
+   - The decline in **early 2020** might be linked to the **COVID-19 pandemic** and its impact on economic activity.
+   - The company might have **implemented new strategies in 2020** that led to **increased sales**.
+8. The **first quarter of 2020** saw the highest sales **(7.01 million units)**, followed by a **steady decline** throughout the year.
+9. **Retailer** channels dominated sales, accounting for **73.22%** of total revenue. The **Direct** channel contributed **15.47%**, and the **Distributor** channel brought in **11.31%**.
+10. The top selling product by total quantity sold are:
+    - **AQ Digit leads** the **PC** Division in terms of quantity sold, with a total of **17.4K units**.
+    - **AQ Maxima MS** is the top-selling product in the **P & A** Division, having sold **0.42M units**.
+    - **AQ Pen Drive 2 IN 1** holds the top spot in the **N & S** Division with **1.16M units** sold.
 
-### SQL Queries
+### Queries
 
 1. Provide the list of markets in which customer "Atliq Exclusive" operates its business in the APAC region.
 

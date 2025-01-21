@@ -1,8 +1,8 @@
 # Ad Hoc Analysis Consumer Goods
 
 ### Quick Links
-  * [LinkedIn Post]()
-  * [Presentation Video]()
+  * [LinkedIn Post](https://www.linkedin.com/posts/badernader_ad-hoc-analysis-project-presentation-bader-activity-7287506774687920128-Mndz?utm_source=share&utm_medium=member_desktop)
+  * [Presentation Video](https://youtu.be/O5mqlPLlE4A)
   * Presentation Files
     * [PDF](https://github.com/BaderNader321/Ad-Hoc-Insights-Consumer-Goods/blob/3f84e6d48b4226af913702bf29d8fcb055c27a7d/Solutions/Ad%20Hoc%20Analysis%20Presentation.pdf)
     * [PPT](https://github.com/BaderNader321/Ad-Hoc-Insights-Consumer-Goods/blob/3f84e6d48b4226af913702bf29d8fcb055c27a7d/Solutions/Ad%20Hoc%20Analysis%20Presentation.pptx) 

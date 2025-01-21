@@ -1,4 +1,4 @@
-# Ad-Hoc-Insights-Consumer-Goods
+# Ad Hoc Analysis Consumer Goods
 
 ### Quick Links
   * [LinkedIn Post]()
@@ -385,6 +385,10 @@ To deliver ad hoc insights using SQL, a structured and systematic approach was f
 ### Key Learnings
 
 
+
+[Back to the top](#ad-hoc-analysis-consumer-goods)
+
+***
 
 ## Understanding the Datasets
 

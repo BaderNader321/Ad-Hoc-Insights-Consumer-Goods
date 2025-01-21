@@ -386,10 +386,6 @@ To deliver ad hoc insights using SQL, a structured and systematic approach was f
 
 
 
-<br>
-
-> [Back to the top](#ad-hoc-analysis-consumer-goods)
-
 ## Understanding the Datasets
 
 Understanding what data is available will be more helpful while doing analysis. before jumping on to the analysis get good understanding of what are data available.
@@ -456,18 +452,8 @@ Understanding what data is available will be more helpful while doing analysis. 
 
   - Has the details of pre invoice deductions percentage for each cutomer with year
 
-<br>
-
-> [Back to the top](#ad-hoc-analysis-consumer-goods)
-
 ## Data Modelling
 
 <br>
 
 <img src="https://github.com/BaderNader321/Ad-Hoc-Insights-Consumer-Goods/blob/3f84e6d48b4226af913702bf29d8fcb055c27a7d/Solutions/Data%20Model.png" class="center">
-
-<br>
-
-> [Back to the top](#ad-hoc-analysis-consumer-goods)
-
-
